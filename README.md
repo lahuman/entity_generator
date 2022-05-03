@@ -2,6 +2,12 @@
 
 Mysql table을 typeorm entity class로 전환 해주는 단순 프로그램 입니다.
 
+SQL이나 class에 대한 변경은 [template.js](https://github.com/lahuman/entity_generator/blob/main/template.js) 파일에서 수정하면 됩니다.
+
+## 추가 팁 
+
+[typeorm-naming-strategies](https://github.com/tonivj5/typeorm-naming-strategies#readme)를 이용하면, ```typeorm```에서 ```SnakeNaming```을 ```CalmeNameing```으로 자동 치환 해줍니다.
+
 
 ## Description
 
@@ -110,4 +116,4 @@ Contributors names and contact info
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE.md file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/lahuman/entity_generator/blob/main/LICENSE.md) file for details
