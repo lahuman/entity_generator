@@ -55,6 +55,48 @@ $ npm run start
 
 결과 파일은 ```테이블명(Camle표기).entity.ts``` 형식의 typescript를 가지게 됩니다.
 
+### Generat Result
+
+cmt_tag_d 테이블을 변환 하였다고 하였을때, 아래와 같은 결과가 ```CmtTagD.entity.ts``` 파일로 저장됩니다.
+
+```javascript
+import { Column } from 'typeorm';
+          
+export class CmtTagD  {
+  /* 커뮤니티게시판정보id */
+  @Column()
+  cmtPostDId :number ;
+
+  /* 커뮤니티태그마스터id */
+  @Column()
+  cmtTagMId :number ;
+
+  /* id */
+  @Column()
+  id :number ;
+
+  /* 수정일시 */
+  @Column()
+  modDtm :string;
+
+  /* 수정시스템명 */
+  @Column()
+  modSytmNm :string;
+
+  /* 등록일시 */
+  @Column()
+  regDtm :string;
+
+  /* 등록시스템명 */
+  @Column()
+  regSytmNm :string;
+
+  /* 사용여부 */
+  @Column()
+  useYn :string;
+
+}
+```
 ## Authors
 
 Contributors names and contact info

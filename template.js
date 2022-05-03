@@ -81,5 +81,5 @@ exports.generator = (
 ) => `import { Column } from 'typeorm';
           
 export class ${camelCaseTableName}  {
-    ${columns}
-  }`;
+${columns}
+}`;
