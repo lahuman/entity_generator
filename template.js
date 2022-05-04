@@ -9,7 +9,10 @@ GROUP_CONCAT(CONCAT(
                 end,
                 ' */',
                 CHAR(13),
-                '  @Column()',
+                case 
+                    when COLUMN_NAME = 'id' then '  @PrimaryGeneratedColumn()'
+                    else                '  @Column()'
+                end,
                 CHAR(13),
 
                 CONCAT('  ',
@@ -78,8 +81,9 @@ table_name`;
 exports.generator = (
   camelCaseTableName,
   columns
-) => `import { Column } from 'typeorm';
+) => `import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
           
+@Entity()
 export class ${camelCaseTableName}  {
 ${columns}
 }`;

@@ -111,6 +111,10 @@ Contributors names and contact info
 
 ## Version History
 
+* 0.2
+    * 누락 키워드 Entity 추가
+    * COLUMN_NAME이 id인 경우 @Column()을 @PrimaryGeneratedColumn()로 변경
+
 * 0.1
     * Initial Release
 
