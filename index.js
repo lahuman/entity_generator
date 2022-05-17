@@ -11,6 +11,14 @@ const toCamel = (s) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
+
+const toSnake = (s) => {
+  const str = s.replace(/([-_][a-z])/gi, ($1) => {
+    return $1.replace("_", "-");
+  });
+  return str;
+};
+
 // 디렉토리가 없을 경우 생성
 if (!fs.existsSync(process.env.ENTITY_DIR)) {
   fs.mkdirSync(process.env.ENTITY_DIR);
@@ -24,7 +32,7 @@ const connection = mysql.createConnection({
 });
 
 connection.connect();
-
+console.log(SQL)
 connection.query(SQL, function (error, results, fields) {
   if (error) {
     console.log(error);
@@ -32,9 +40,10 @@ connection.query(SQL, function (error, results, fields) {
   // entity 테이블을 생성할 디렉토리를 만든다.
   results.map((r) => {
     const camelCaseTableName = toCamel(r.TABLE_NAME);
-
+    const sankeCaseTableName = toSnake(r.TABLE_NAME);
+    
     fs.writeFileSync(
-      `${process.env.ENTITY_DIR}/${camelCaseTableName}.entity.ts`,
+      `${process.env.ENTITY_DIR}/${process.env.FILE_NAME_CAMEL==='false'?sankeCaseTableName:camelCaseTableName}.entity.ts`,
       generator(camelCaseTableName, r.field)
     );
     console.log(`${camelCaseTableName} :: complete`);

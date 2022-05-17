@@ -5,3 +5,6 @@ DB_PASSWORD=
 DB_NAME=
 
 ENTITY_DIR='./entity'
+
+FILE_NAME_CAMEL=false
+IGNORE_FIELD=column1,column2

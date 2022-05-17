@@ -72,6 +72,7 @@ inner join information_schema.COLUMNS B on
     (A.TABLE_NAME = B.TABLE_NAME)
 where
     A.TABLE_SCHEMA = '${process.env.DB_NAME}'
+    ${process.env.IGNORE_FIELD?` AND B.COLUMN_NAME NOT IN ('${process.env.IGNORE_FIELD.split(',').join('\',\'')}')`:''}
 ) A
 group by
 TABLE_NAME

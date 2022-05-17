@@ -32,6 +32,9 @@ DB_PASSWORD=                # DB 비밀번호
 DB_NAME=                    # DB 명
 
 ENTITY_DIR='./entity'       # entity typescript 파일이 저장될 위치
+
+FILE_NAME_CAMEL=false       # 파일명 표기 법 true일경우 CstMain, false일 경우 cst-name으로 표기
+IGNORE_FIELD=column1,column2 # 제외할 필드 추가 
 ```
 ### Dependencies
 
@@ -110,11 +113,12 @@ Contributors names and contact info
 [@lahuman](https://lahuman.github.io/)
 
 ## Version History
-
+* 0.3
+    * 파일명 낙타/score 표기 선택 가능
+    * IGNORE_FIELD 추가
 * 0.2
     * 누락 키워드 Entity 추가
     * COLUMN_NAME이 id인 경우 @Column()을 @PrimaryGeneratedColumn()로 변경
-
 * 0.1
     * Initial Release
 
